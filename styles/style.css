@@ -52,18 +52,18 @@ ol {
 .content {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   align-items: flex-end;
-  gap: 30px;
+  gap: 28px;
   margin-right: auto;
   margin-left: auto;
+  inline-size: 1140px;
 }
 
 .result {
   display: grid;
   grid-template-rows: 387px 55px;
   gap: 16px;
-  min-width: 711px;
+  inline-size: 711px;
 }
 
 .content__details {
@@ -75,8 +75,9 @@ ol {
 .search-form {
   display: flex;
   flex-direction: row;
+  gap: 39px;
   height: 55px;
-  gap:42px;
+  inline-size: 711px;
 }
 
 .content__list {
@@ -88,16 +89,12 @@ ol {
 }
 
 .content__list-item:not(:last-of-type) {
-  margin-bottom: 31px;
+  margin-bottom: 32px;
 }
 
-.content__list-item:hover {
+.content__card-link:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-
-.content__list-item:focus {
-  outline: none;
 }
 
 .content__card-link:focus {
@@ -111,11 +108,11 @@ ol {
 
 .result__video-container {
   position: relative;
-  max-width: 100%;
   max-height: 387px;
+  inline-size: 711px;
 }
 
-video {
+.result__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -125,7 +122,6 @@ video {
 .content__video-card {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   height: 105px;
 }
 
@@ -134,13 +130,14 @@ video {
   width: 194px;
   height: 102px;
   object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 4px;
-  width: 200px;
   height: 100%;
   padding-left: 2px;
 }
@@ -148,7 +145,7 @@ video {
 .search-form__fieldset-title {
   font-family: "Fira Sans Condensed", sans-serif;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 18px;
   font-style: normal;
   line-height: normal;
 }
@@ -159,7 +156,7 @@ video {
   font-weight: 700;
   font-size: 75px;
   font-style: normal;
-  line-height: 94%;
+  line-height: 0.94;
   text-transform: uppercase;
 }
 
@@ -168,9 +165,15 @@ video {
 }
 
 .content__card-link {
+  display: block;
   margin: 2px;
   color: #fff;
   text-decoration: none;
+  inline-size: 395px;
+}
+
+.content__card-link:active {
+  background-color: #545050;
 }
 
 .content__video-card-title {
@@ -184,7 +187,7 @@ video {
 
 .content__video-card-description {
   font-weight: 400;
-  line-height: 17px;
+  line-height: 18px;
 }
 
 fieldset {
@@ -199,10 +202,6 @@ fieldset {
   cursor: pointer;
 }
 
-.search-form__label-text {
-  font-size: 17px;
-}
-
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -212,7 +211,7 @@ fieldset {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 7px;
+  gap: 6px;
   padding-top: 2px;
 }
 
@@ -233,15 +232,12 @@ fieldset {
   outline: none;
 }
 
-.search-form__label:focus {
-  outline: none;
+.search-form__textfield:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
-.search-form__label:has(:focus-visible) {
-  box-shadow: 0 0 0 2px #1b1919, 0 0 0 3px #fff;
-}
-
-.search-form__label:active {
+.search-form__checkbox-list .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
 }
 
@@ -251,21 +247,20 @@ fieldset {
   gap: 18px;
 }
 
-.search-form__pseudo-checkbox::before{
-    border: 1px solid #1b1919;
-    border-radius: 0;
-    background-color: transparent;
-    box-sizing: border-box;
-    content: close-quote;
-    display: inline-block;
-    height: 18px;
-    outline: 1px solid #fff;
-    width: 18px;
+.search-form__pseudo-checkbox::before {
+  content: close-quote;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #1b1919;
+  border-radius: 0;
+  outline: 1px solid #fff;
+  background-color: transparent;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::before{
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   background-color: #fff;
-  border-color: #1b1919;
 }
 
 .button {
@@ -274,7 +269,7 @@ fieldset {
   height: 34px;
   border: 1px solid #fff;
   color: #fff;
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: normal;
@@ -286,7 +281,7 @@ fieldset {
 .more-button {
   width: 100%;
   margin: 3px;
-  inline-size: 399px;
+  inline-size: 393px;
 }
 
 .button:hover {
@@ -298,18 +293,14 @@ fieldset {
 }
 
 .button:focus-visible {
-  box-shadow: 0 0 0 2px #1b1919, 0 0 0 3px #fff;
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .button:active {
   background-color: #545050;
 }
 
-.content__card-link {
-  display: block;
-}
-
 .content__card-link_current {
   background: #545050;
 }
-
